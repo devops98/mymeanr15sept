@@ -212,5 +212,5 @@
     "standard": "8.6.0",
     "supertest": "^3.0.0"
   },
-  "snyk": true
+  "snyk": false
 }
