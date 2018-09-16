@@ -5,8 +5,8 @@ pipeline {
             steps {
                 echo 'Running build automation'
                 sh 'npm install --force'
-                sh 'npm install --unsafe-perm node-sass'
-				sh 'npm install --unsafe-perm --per'
+                sh 'sudo npm install --unsafe-perm node-sass'
+				sh 'sudo npm install --unsafe-perm --per'
 				sh 'npm test'
                 sh ' ./gradlew build --no-daemon'
                 
