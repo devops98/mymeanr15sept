@@ -103,7 +103,7 @@ backups/
 # --------------------
 # Mean Stack ENV
 # --------------------
-#.env
+.env
 
 # --------------------
 # Mean Stack Logs
