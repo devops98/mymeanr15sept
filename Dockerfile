@@ -9,7 +9,6 @@ RUN npm install --unsafe-perm node-sass
 COPY . .
 RUN npm install --unsafe-perm --per
 
-RUN npm test
 USER node
 EXPOSE 3000
 
