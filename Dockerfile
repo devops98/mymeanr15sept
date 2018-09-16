@@ -1,7 +1,7 @@
-FROM node:9
+FROM node:8.10.0-alpine
 
-WORKDIR /app
-
+RUN mkdir -p /usr/app/build
+WORKDIR /usr/app
 
 COPY package.json .
 RUN npm install --force
@@ -9,7 +9,6 @@ RUN npm install --unsafe-perm node-sass
 COPY . .
 RUN npm install --unsafe-perm --per
 
-USER node
 EXPOSE 3000
 
 CMD ["npm", "start"]
