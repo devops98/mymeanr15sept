@@ -19,7 +19,7 @@ pipeline {
                 script {
                     app = docker.build("tester99/mymeanr")
                     app.inside {
-                        sh 'echo $(curl localhost:8080)'
+                        sh 'echo $(curl localhost:3000)'
                     }
                 }
             }
