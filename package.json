@@ -33,7 +33,7 @@
     ]
   },
   "scripts": {
-    "test": "npm run mocha && CHROME_BIN=google-chrome-stable  npm run karma && CHROME_BIN=google-chrome-stable npm run e2e && CHROME_BIN=google-chrome-stable npm run e2e:concat &&  CHROME_BIN=google-chrome-stable npm run e2e:minify && npm run lint",
+    "test": "npm run mocha && CHROME_BIN=google-chrome-stable  npm run karma && CHROME_BIN=google-chrome-stable npm run e2e && CHROME_BIN=google-chrome-stable npm run e2e:concat &&  CHROME_BIN=google-chrome-stable npm run e2e:minify",
     "e2e": "node_modules/.bin/cross-env MINIFY=default node_modules/.bin/nightwatch",
     "e2e:concat": "node_modules/.bin/cross-env MINIFY=concat node_modules/.bin/nightwatch",
     "e2e:minify": "node_modules/.bin/cross-env MINIFY=minify node_modules/.bin/nightwatch",
