@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build automation'
-                sh 'npm install --force'
+                sh 'sudo npm install --force'
                 sh 'sudo npm install --unsafe-perm node-sass'
 				sh 'sudo npm install --unsafe-perm --per'
 				sh 'npm test'
