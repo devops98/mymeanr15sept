@@ -3,7 +3,7 @@ FROM node:8.10.0-alpine
 RUN mkdir -p /usr/app/build
 WORKDIR /usr/app
 
-COPY package.json 
+COPY package.json .
 //RUN npm install --force
 RUN npm install  --force --unsafe-perm  --per node-sass 
 RUN npm rebuild node-sass
