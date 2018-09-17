@@ -1,4 +1,4 @@
-var mongodbUri = process.env.DB_PORT_27017_TCP_ADDR || process.env.MONGODB || process.env.MONGOLAB_URI || 'mongodb://54.171.166.47/test'
+var mongodbUri = process.env.DB_PORT_27017_TCP_ADDR || process.env.MONGODB || process.env.MONGOLAB_URI || 'mongodb://34.245.43.142/test'
 
 module.exports = {
   minify: process.env.MINIFY || 'concat', // 'concat' all files or 'minify' concat and minfy  or 'default' leave as is
