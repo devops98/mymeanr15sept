@@ -130,6 +130,9 @@ function Mean (opts, done) {
    * auto  - connectMongoDb :  server > Used to finsh the final set up of the server. at the same time we start connecting to mongo and turning on the server.
    * @function
    */
+
+  
+
   auto({
     http: function (cb) {
       if (!self.settings.http.active && (self.settings.https.active === false) !== (self.settings.http.active === false)) return cb()
@@ -156,6 +159,7 @@ function Mean (opts, done) {
       app.set('forceSSLOptions', {
         httpsPort: self.settings.https.port
       })
+      // app.get( '/signin', keycloak.protect('special'), function(){console.log('---------')} );
       app.use('/*', forceSSL)
       http.createServer(app).listen(self.settings.http.port, function () {
         self.logger.info('HTTP FORCE SSL Express server listening on port %d in %s mode', self.settings.http.port, self.environment)

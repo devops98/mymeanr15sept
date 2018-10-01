@@ -46,7 +46,40 @@ function routes (self) {
       error: 'nothing found at ' + req.path
     })
   })
-  self.app.get('/*', function (req, res, next) {
+// keyclock start
+let kcConfig =  {
+  "realm": "Meanr",
+  "auth-server-url": "http://localhost:8080/auth",
+  "ssl-required": "external",
+  "resource": "meanr-client",
+  "public-client": true,
+  "use-resource-role-mappings": true,
+  "confidential-port": 0
+}
+
+var session = require('express-session');
+var Keycloak = require('keycloak-connect');
+var memoryStore = new session.MemoryStore();
+
+let keycloak = new Keycloak({ store: memoryStore }, kcConfig);
+self.app.use( keycloak.middleware() );
+self.app.use(session({
+  secret:'thisShouldBeLongAndSecret',
+  resave: false,
+  saveUninitialized: true,
+  store: memoryStore
+}));
+
+
+self.app.get('/signin', keycloak.protect(), function (req, res, next) {
+console.log('-----------')
+next();
+})
+
+// key cloack end
+
+
+self.app.get('/*', function (req, res, next) {
     seo(self, req, function (seoSettings) {
       ejs.renderFile(path.join(__dirname, './layout/index.html'), {
         html: seoSettings,

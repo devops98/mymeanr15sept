@@ -7,13 +7,13 @@ WORKDIR /opt/meanstackjs
 # Install npm packages
 ADD package.json /opt/meanstackjs/package.json
 RUN apk add --no-cache python make gcc g++ curl && npm install --quiet
-RUN npm install  --force --unsafe-perm  --per node-sass && npm rebuild node-sass
+RUN npm install --production  --force --unsafe-perm  --per node-sass && npm rebuild node-sass
 
 # Share local directory on the docker container
 ADD . /opt/meanstackjs
 
 # Set development environment as default
-ENV NODE_ENV development
+ENV NODE_ENV production
 
 RUN cd  /opt/meanstackjs/tools/livereload && rm -rf node_modules && npm install
 
